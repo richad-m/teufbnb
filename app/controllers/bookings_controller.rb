@@ -1,9 +1,9 @@
 class BookingsController < ApplicationController
-  def index
-    #Retrieve the user id
-    # Assign all bookings of the user to @bookings
+  # def index
+  #   #Retrieve the user id
+  #   # Assign all bookings of the user to @bookings
     
-  end
+  # end
 
   def new
     @booking = Booking.new
@@ -11,16 +11,18 @@ class BookingsController < ApplicationController
 
   def create
     @booking = Booking.new(booking_params)
+    @product = Product.find(params[:product_id])
+    @booking.product_id = @product.id
     if @booking.save
-      redirect_to product_booking()
+      redirect_to product_path(@booking.product_id)
     else 
       render :new
     end
   end
 
-  def show
-    @booking = Booking.find()
-  end
+  # def show
+  #   @booking = Booking.find()
+  # end
 
 
   private
