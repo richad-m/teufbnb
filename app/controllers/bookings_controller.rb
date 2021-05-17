@@ -12,6 +12,7 @@ class BookingsController < ApplicationController
   def create
     @booking = Booking.new(booking_params)
     @product = Product.find(params[:product_id])
+    @booking.user_id = current_user.id
     @booking.product_id = @product.id
     if @booking.save
       redirect_to product_path(@booking.product_id)
