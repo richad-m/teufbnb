@@ -5,7 +5,7 @@ class ProductsController < ApplicationController
   end
 
   def new
-    @product = product.new
+    @product = Product.new
   end
 
   def create
@@ -14,6 +14,7 @@ class ProductsController < ApplicationController
       redirect_to products_path
     else
      render :new
+    end
   end
 
   def edit
