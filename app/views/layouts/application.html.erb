@@ -12,6 +12,8 @@
   </head>
 
   <body>
+    <%= current_user.email if current_user %>
+    <%= User.count %>
     <%= yield %>
   </body>
 </html>
