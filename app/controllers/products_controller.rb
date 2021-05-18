@@ -2,16 +2,18 @@ class ProductsController < ApplicationController
 
 
  def index
-  @products = Product.all
+  @products = policy_scope(Product)
  end
 
 
   def show
     @product = Product.find(params[:id])
+    authorize @product
   end
 
   def new
     @product = Product.new
+    authorize @product
   end
 
   def create
