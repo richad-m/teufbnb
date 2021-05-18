@@ -1,9 +1,5 @@
-<% @products.each do |p| %>
-
-  <%= "Titre : #{p.title} - Description : #{p.description} - Price : #{p.price}€ - Owner #{User.find(p.user_id).first_name}" %>
-  <% if p.photos %>
-    <% p.photos.each do |photo| %>
-    <%= cl_image_tag photo.key, height: 300, width: 400, crop: :fill %>
-    <% end %>
+<% @products.each_with_index do |p,i| %>
+  <%= link_to product_path(p) do %>
+    <%= render  "shared/index_card", product: p, i: i %>
   <% end %>
 <% end %>
