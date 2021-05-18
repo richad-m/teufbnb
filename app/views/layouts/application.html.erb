@@ -12,8 +12,8 @@
   </head>
 
   <body>
-    <%= current_user.email if current_user %>
-    <%= User.count %>
+    <%= render 'shared/navbar' %>
     <%= yield %>
+    <%= render 'shared/footer' %>
   </body>
 </html>

@@ -1,6 +1,7 @@
 .navbar-lewagon {
   justify-content: space-between;
   background: #f4f4f400;
+  height: 56px;
 }
 
 .navbar-lewagon .navbar-collapse {
@@ -9,13 +10,14 @@
 }
 
 .fa-user-astronaut {
-  font-size: 50px;
+  font-size: 30px;
   border: solid 2px black;
   border-radius: 50%;
   padding: 10px;
 }
 
 .navbar-lewagon .navbar-brand img {
-  width: 100px;
+  width: 46px;
   border-radius: 50%;
 }
+
