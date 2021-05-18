@@ -1,0 +1,5 @@
+<% @products.each do |p| %>
+
+<%= "Titre : #{p.title} - Description : #{p.description} - Price : #{p.price}€ - Owner #{User.find(p.user_id).first_name}" %>
+
+<% end %>
