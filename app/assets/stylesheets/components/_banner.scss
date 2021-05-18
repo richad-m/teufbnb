@@ -1,0 +1,36 @@
+.banner {
+  background-size: cover;
+  background-position: center;
+  padding: 150px 0;
+}
+
+.banner h1 {
+  margin: 0;
+  color: white;
+  text-shadow: 1px 1px 3px rgba(0,0,0,0.2);
+  font-size: 32px;
+  font-weight: bold;
+}
+
+.banner p {
+  font-size: 20px;
+  color: white;
+  opacity: .7;
+  text-shadow: 1px 1px 3px rgba(0,0,0,0.2);
+}
+
+.btn {
+  color: white;
+  font-weight: bold;
+  background-color: rgb(43, 180, 43);
+  padding: 8px;
+  width: 243px;
+  height: 43px;
+  border-radius: 3%;
+  text-decoration: none;
+}
+
+.btn:hover {
+  background-color:rgb(79, 219, 79) ;
+  color: white;
+}
