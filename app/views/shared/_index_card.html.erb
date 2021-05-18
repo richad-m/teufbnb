@@ -31,4 +31,10 @@
         <%= "by #{User.find(product.user_id).first_name}" %>
       </p>
     </div>
+    <div class="card-delete mr-5">
+      <%= link_to "Delete product",
+            product_path(product),
+            method: :delete,
+            data: { confirm: "Are you sure?" } %>
+    </div>
 </div>

@@ -4,8 +4,9 @@
   <div>
    <h2><%= @product.title %></h2>
   </div>
-  <div>
+  <div class="share-like-delete">
    <p>share + like</p>
+    <%= link_to "Delete product", product_path(@product), method: :delete, data: { confirm: "Are you sure?" } %>
   </div>
 </div>
 
@@ -13,7 +14,7 @@
 <div id="product-carousel" class="carousel slide py-3" data-ride="carousel">
         <div class="carousel-inner">
           <% @product.photos.each_with_index do |photo, i| %>
-            <div class="carousel-item <%= "active" if i == 0 %>">
+            <div class="carousel-item<%= "active" if i == 0 %>" id="toto">
               <%= cl_image_tag photo.key, height: 400, width: 800, crop: :fill, class: "d-block w-100" %>
             </div>
           <% end %>
