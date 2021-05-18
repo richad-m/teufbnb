@@ -4,5 +4,5 @@ class Product < ApplicationRecord
   validates :title, presence: true, length: { maximum: 40 }
   validates :description, presence: true, length: { maximum: 500 }
   validates :price, presence: true
-  validates :photos, attached: true
+  validates :photos, presence: true
 end
