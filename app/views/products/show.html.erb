@@ -13,7 +13,7 @@
 <div id="product-carousel" class="carousel slide py-3" data-ride="carousel">
         <div class="carousel-inner">
           <% @product.photos.each_with_index do |photo, i| %>
-            <div class="carousel-item <%= "active" if i == 0 %>">
+            <div class="carousel-item<%= "active" if i == 0 %>" id="toto">
               <%= cl_image_tag photo.key, height: 400, width: 800, crop: :fill, class: "d-block w-100" %>
             </div>
           <% end %>
