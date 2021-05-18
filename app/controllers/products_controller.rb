@@ -2,21 +2,24 @@ class ProductsController < ApplicationController
 
 
  def index
-  @products = Product.all
+  @products = policy_scope(Product)
  end
 
 
   def show
     @product = Product.find(params[:id])
+    authorize @product
   end
 
   def new
     @product = Product.new
+    authorize @product
   end
 
   def create
     @product = Product.new(product_params)
     @product.user_id = current_user.id
+    authorize @product
     if @product.save
       redirect_to products_path
     else
