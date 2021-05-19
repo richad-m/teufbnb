@@ -5,6 +5,10 @@ class ProductsController < ApplicationController
  def index
   @products = policy_scope(Product)
 
+  flash[:notice]="Succesfully booked" if params[:booking]
+ end
+
+
 
   @markers = @products.geocoded.map do |product|
       {
@@ -20,6 +24,7 @@ class ProductsController < ApplicationController
 
   def show
     @product = Product.find(params[:id])
+    @booking = Booking.new
     authorize @product
   end
 
