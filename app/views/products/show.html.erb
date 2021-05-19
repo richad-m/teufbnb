@@ -4,11 +4,13 @@
     <div>
     <h2><%= @product.title %></h2>
     </div>
-    <div class="share-like-delete">
-    <p>share + like</p>
-      <%= link_to "Delete product", product_path(@product), method: :delete, data: { confirm: "Are you sure?" } %>
-    </div>
+
+  <div class="share-like-delete text-right">
+   <p>share & like</p>
+    <%= link_to "Delete product", product_path(@product), method: :delete, data: { confirm: "Are you sure?" }, class: "icone"%>
   </div>
+</div>
+
 
   <div id="product-carousel" class="carousel slide py-3" data-ride="carousel">
     <div class="carousel-inner">
