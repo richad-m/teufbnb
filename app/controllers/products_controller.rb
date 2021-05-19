@@ -3,6 +3,13 @@ class ProductsController < ApplicationController
 
  def index
   @products = policy_scope(Product)
+
+  @markers = @products.geocoded.map do |product|
+      {
+        lat: product.latitude,
+        lng: product.longitude
+      }
+    end
  end
 
 

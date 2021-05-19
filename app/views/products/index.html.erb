@@ -1,5 +1,14 @@
-<% @products.each_with_index do |p,i| %>
-  <%= link_to product_path(p) do %>
-    <%= render "shared/index_card", product: p, i: i %>
-  <% end %>
-<% end %>
+<div class="container d-flex">
+  <div class="list col-8">
+    <% @products.each_with_index do |p,i| %>
+      <%= link_to product_path(p) do %>
+        <%= render "shared/index_card", product: p, i: i %>
+      <% end %>
+    <% end %>
+  </div>
+  <div id="map" class="col-4"
+     style="width: 100%; height: 600px;"
+     data-markers="<%= @markers.to_json %>"
+     data-mapbox-api-key="pk.eyJ1IjoibWJlZ2luIiwiYSI6ImNrbzRjbTN0cTFpMGYydm12bXBkbnNvM28ifQ.5_XN1L3vDAyA8fnDzQtS1g">
+  </div>
+</div>
