@@ -1,7 +1,10 @@
 .navbar-lewagon {
+  background: white;
+  position: sticky;
+  top: 0;
+  z-index: 99999;
   justify-content: space-between;
-  background: #f4f4f400;
-  height: 56px;
+  height: $navbar-height;
 }
 
 .navbar-lewagon .navbar-collapse {
@@ -25,4 +28,8 @@
   display: flex;
   align-items: center;
   margin-right: 24px;
+}
+
+.facette {
+  margin: 40px;;
 }
