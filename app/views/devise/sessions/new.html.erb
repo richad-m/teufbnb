@@ -1,3 +1,7 @@
+<div class="bodyform-new">
+  <div class="container form">
+    <h2 class="title">Welcome to Teufbnb <strong>Sign-in test</strong></h2>
+
 <h2>Log in</h2>
 
 <%= simple_form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
@@ -13,8 +17,10 @@
   </div>
 
   <div class="form-actions">
-    <%= f.button :submit, "Log in" %>
+    <%= f.button :submit, "Log in", class: 'btn btn-outline-light'%>
   </div>
 <% end %>
 
 <%= render "devise/shared/links" %>
+ </div>
+</div>
