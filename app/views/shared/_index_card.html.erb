@@ -1,11 +1,10 @@
 <div class="card-product m-3">
     <!-- Carrousel -->
-
   <div id="product-carousel-<%=i%>" class="carousel slide" data-ride="carousel">
     <div class="carousel-inner">
       <% product.photos.each_with_index do |photo, i| %>
         <div class="carousel-item <%= "active" if i == 0 %>">
-          <%= cl_image_tag photo.key, height: 300, width: 400, crop: :fill, class: "d-block w-100" %>
+          <%= cl_image_tag photo.key, height: 300, width: 400, crop: :fill, class: "d-block" %>
         </div>
       <% end %>
     </div>
