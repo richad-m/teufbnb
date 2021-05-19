@@ -3,6 +3,8 @@ class ProductsController < ApplicationController
 
  def index
   @products = policy_scope(Product)
+  @products = Product.where(category: params[:q]) if params[:q]
+  # raise
  end
 
 
