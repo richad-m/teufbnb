@@ -16,13 +16,6 @@
   <% end %>
 </div>
 
-<% @products.each_with_index do |p,i| %>
-  <%= link_to product_path(p) do %>
-    <%= render "shared/index_card", product: p, i: i %>
-  <% end %>
-<% end %>
-
-
 <div class="container d-flex">
   <div class="list col-8">
     <% @products.each_with_index do |p,i| %>
