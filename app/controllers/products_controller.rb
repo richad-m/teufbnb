@@ -4,8 +4,18 @@ class ProductsController < ApplicationController
 
  def index
   @products = policy_scope(Product)
+
+
+  @markers = @products.geocoded.map do |product|
+      {
+        lat: product.latitude,
+        lng: product.longitude
+      }
+    end
+
   @products = Product.where(category: params[:q]) if params[:q]
   # raise
+
  end
 
   def show
