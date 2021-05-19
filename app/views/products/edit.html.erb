@@ -1,0 +1,15 @@
+<div class="bodyform-new">
+  <div class="container form">
+    <h1>Edit <%=@product.title%> <strong>PARTYYYYY</strong></h1>
+  
+    <%= simple_form_for(@product) do |f| %>
+      <%= f.input :title %>
+      <%= f.input :description %>
+      <%= f.input :price %>
+      <%= f.input :city %>
+      <%= f.input :category, collection: ["Sons", "Lumières", "Déco", "Insolite"] %>
+      <%= f.input :photos, as: :file, input_html: { multiple: true } %>
+      <%= f.submit %>
+    <% end %>
+  </div>
+</div>

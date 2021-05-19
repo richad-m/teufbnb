@@ -23,7 +23,7 @@ class ApplicationPolicy
   end
 
   def update?
-    false
+    owner?
   end
 
   def edit?
@@ -31,11 +31,11 @@ class ApplicationPolicy
   end
 
   def destroy?
-    false
+    owner?
   end
 
   def owner?
-    record.user == user
+    @record.user_id == user.id
   end
 
   class Scope
