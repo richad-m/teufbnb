@@ -12,7 +12,7 @@
     <div class="navbar-nav mr-auto">
         <div class="add-product">
           <% if user_signed_in?%>
-            <%= link_to  "Add a product", new_product_path %>
+            <%= link_to  "Add a product", new_product_path, class: "link-new-product" %>
         </div>
       <div class="nav-item dropdown">
         <div class="dropdown mr-5">
