@@ -4,7 +4,7 @@
     <div class="carousel-inner">
       <% product.photos.each_with_index do |photo, i| %>
         <div class="carousel-item <%= "active" if i == 0 %>">
-          <%= cl_image_tag photo.key, height: 300, width: 400, crop: :fill, class: "d-block" %>
+          <%= cl_image_tag photo.key, height: 150, width: 200, crop: :fill, class: "d-block" %>
         </div>
       <% end %>
     </div>
