@@ -1,15 +1,15 @@
 <div class="bodyform-new">
   <div class="container form">
-    <h1>Adding a product for a perfect <strong>PARTYYYYY</strong></h1>
+    <h2 class="title">Adding a product for a crazy <strong>PARTY</strong></h2>
   
     <%= simple_form_for(@product) do |f| %>
-      <%= f.input :title %>
-      <%= f.input :description %>
-      <%= f.input :price %>
-      <%= f.input :city %>
-      <%= f.input :category, collection: ["Sons", "Lumières", "Déco", "Insolite"] %>
-      <%= f.input :photos, as: :file, input_html: { multiple: true } %>
-      <%= f.submit %>
+      <%= f.input :title, label: 'Which product you want to rent', placeholder: "Boules à facettes"%> 
+      <%= f.input :description, placeholder: "Boule à facettes DISCO pour soirées rythmées diamètre 30cm" %>
+      <%= f.input :price, label: 'Price per day', placeholder: "25"%>
+      <%= f.input :city, placeholder: "New York" %>
+      <%= f.input :category, collection: ["Sons", "Lumières", "Déco", "Insolite"]%>
+      <%= f.input :photos, as: :file, input_html: { multiple: true } , class: 'btn btn-outline-light'%>
+      <%= f.submit 'Submit', class: 'btn btn-outline-light'%>
     <% end %>  
   </div>
 </div>

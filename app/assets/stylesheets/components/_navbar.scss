@@ -1,7 +1,10 @@
 .navbar-lewagon {
+  background: white;
+  position: sticky;
+  top: 0;
+  z-index: 99999;
   justify-content: space-between;
-  background: #f4f4f400;
-  height: 56px;
+  height: $navbar-height;
 }
 
 .navbar-lewagon .navbar-collapse {
@@ -25,4 +28,19 @@
   display: flex;
   align-items: center;
   margin-right: 24px;
+}
+
+.facette {
+  margin: 40px;;
+}
+
+.link-new-product{
+    color:rgba(168, 1, 1, 0.856) !important;
+}
+
+.link-new-product:hover {
+  font-size: large;
+  font-weight: 300;
+  color:rgba(161, 0, 0, 0.856) !important;
+  text-decoration: none;
 }

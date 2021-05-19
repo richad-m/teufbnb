@@ -1,3 +1,28 @@
+<h1>All our party stuff</h1>
+
+<div class="dropdown">
+  <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+    Filter by Category
+  </button>
+  <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+    <a class="dropdown-item" href="/products/?q=Sons">Sons</a>
+    <a class="dropdown-item" href="/products/?q=Lumieres">Lumières</a>
+    <a class="dropdown-item" href="/products/?q=Insolite">Insolite</a>
+    <a class="dropdown-item" href="/products/?q=Deco">Déco</a>
+    <a class="dropdown-item" href="/products/">All</a>
+  </div>
+  <% if params[:q] %>
+  <p> Our party stuff in the category <%= params[:q] %></p>
+  <% end %>
+</div>
+
+<% @products.each_with_index do |p,i| %>
+  <%= link_to product_path(p) do %>
+    <%= render "shared/index_card", product: p, i: i %>
+  <% end %>
+<% end %>
+
+
 <div class="container d-flex">
   <div class="list col-8">
     <% @products.each_with_index do |p,i| %>
@@ -12,3 +37,6 @@
      data-mapbox-api-key="pk.eyJ1IjoibWJlZ2luIiwiYSI6ImNrbzRjbTN0cTFpMGYydm12bXBkbnNvM28ifQ.5_XN1L3vDAyA8fnDzQtS1g">
   </div>
 </div>
+
+
+

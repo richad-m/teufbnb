@@ -1,8 +1,28 @@
 .form {
-  width: 40%;
+  width: 35%;
 }
 
 .bodyform-new {
   color: white;
+  padding-bottom: 50px;
   background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url("https://images.unsplash.com/photo-1517457373958-b7bdd4587205?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1050&q=80");
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+
+.title {
+text-align: center;
+margin-bottom: 2.5rem;
+padding-top: 35px;
+}
+
+
+.form-control {
+  background-color: #201f1d;
+}
+
+.form-actions{
+  display: flex;
+  justify-content: space-around;
 }

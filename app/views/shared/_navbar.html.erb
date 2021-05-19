@@ -1,6 +1,6 @@
-<div class="navbar navbar-expand-sm navbar-light navbar-lewagon">
+<div class="navbar navbar-expand-sm navbar-light navbar-lewagon fixed-top">
   <%= link_to root_path, class: "navbar-brand" do %>
-    <img src="https://static.wixstatic.com/media/cb967b_afaeaa7f185044b4b46ca406ba0791b5~mv2.gif" alt="mirror ball"  width="500" />
+    <img src="https://static.wixstatic.com/media/cb967b_afaeaa7f185044b4b46ca406ba0791b5~mv2.gif" alt="mirror ball"  width="500" class="facette"/>
   <% end %>
 
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -12,7 +12,7 @@
     <div class="navbar-nav mr-auto">
         <div class="add-product">
           <% if user_signed_in?%>
-            <%= link_to  "Add a product", new_product_path %>
+            <%= link_to  "Add a product", new_product_path, class: "link-new-product" %>
         </div>
       <div class="nav-item dropdown">
         <div class="dropdown mr-5">
