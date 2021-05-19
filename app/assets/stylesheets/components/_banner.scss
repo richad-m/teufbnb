@@ -13,6 +13,7 @@
 }
 
 .banner p {
+  margin-bottom: 50px;
   font-size: 20px;
   color: white;
   opacity: .7;
@@ -21,8 +22,8 @@
 
 .btn-index {
   text-decoration: none;
-  color: #4A4A4A;
-  border: 1px solid #4A4A4A;
+  color: #f1f1f1;
+  border: 1px solid #f1f1f1;
   padding: 16px 32px;
   border-radius: 50px;
   font-weight: lighter;
@@ -31,7 +32,18 @@
 }
 .btn-index:hover {
   color: white;
-  background-color: rgba(0, 0, 0, 0.664);
+  background-color: rgba(78, 27, 27, 0.664);
   text-decoration: none;
   opacity: 1;
+}
+
+.link-all-products {
+  color:rgba(168, 1, 1, 0.856) !important;
+}
+
+.link-all-products:hover {
+  font-size: large;
+  font-weight: 300;
+  color:rgba(161, 0, 0, 0.856) !important;
+  text-decoration: none;
 }
