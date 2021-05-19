@@ -1,10 +1,10 @@
 class ProductsController < ApplicationController
+
   skip_before_action :authenticate_user!, only: [:index, :show ]
 
  def index
   @products = policy_scope(Product)
  end
-
 
   def show
     @product = Product.find(params[:id])
@@ -23,7 +23,7 @@ class ProductsController < ApplicationController
     if @product.save
       redirect_to products_path
     else
-     render :new
+      render :new
     end
   end
 
@@ -50,6 +50,6 @@ class ProductsController < ApplicationController
   private
 
   def product_params
-    params.require(:product).permit(:title, :description, :price, :city, :category, photos: [] )
+    params.require(:product).permit(:title, :description, :price, :city, :category, photos: [])
   end
 end
