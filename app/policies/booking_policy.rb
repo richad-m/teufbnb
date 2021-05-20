@@ -31,6 +31,14 @@ class BookingPolicy < ApplicationPolicy
     # - user:   the `current_user` signed in with Devise.
   end
 
+  def accept?
+    edit?
+  end
+
+  def deny?
+    edit?
+  end
+
   def destroy?
     owner?
   end
