@@ -27,6 +27,21 @@ class BookingsController < ApplicationController
     end
   end
 
+  def accept
+    @booking = Booking.find(params[:id])
+    @booking.status = "validated"
+    @booking.save
+    redirect_to bookings_path
+    authorize @booking
+  end
+
+  def deny
+    @booking = Booking.find(params[:id])
+    @booking.status = "denied"
+    @booking.save
+    redirect_to bookings_path
+    authorize @booking
+  end
 
   # def show
   #   @booking = Booking.find()

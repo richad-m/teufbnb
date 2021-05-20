@@ -20,9 +20,14 @@
   </div>
   <div class="card-delete mr-5">
     <% if user_signed_in? && current_user.id == booking.product.user_id %>
-      <%= link_to  "<i class='fas fa-check-square'></i>".html_safe, root_path, class: "icone" %>
+      <%= link_to  "<i class='fas fa-check-square'></i>".html_safe, accept_booking_path(booking),
+      method: :patch,
+        data: { confirm: "Confirm booking?" },
+       class: "icone" %>
       <%= link_to "<i class='fas fa-times'></i>".html_safe,
-            root_path,
+            deny_booking_path(booking),
+            method: :patch,
+            data: { confirm: "Decline request?" },
             class: "icone" %>
     <% end %>
   </div>
