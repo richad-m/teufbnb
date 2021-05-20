@@ -6,7 +6,7 @@
     </div>
 
     <div class="share-like-delete text-right">
-      <p> share & like </p>
+      <p> <i class="far fa-heart"></i> </p>
       <% if user_signed_in? && current_user.id == @product.user_id %>
         <%= link_to  "<i class='fas fa-edit'></i>".html_safe, edit_product_path(@product), class: "icone" %>
         <%= link_to "<i class='fas fa-trash'></i>".html_safe,
@@ -49,7 +49,6 @@
             as: :date,
             html5: true%>
             <%= f.submit "Book now", class: "btn btn-primary flex-grow" %>
-            <%#= link_to "Book now", products_path(booking: "true"), class: "btn btn-light"%>
         <% end %>
       </div>
     </div>
