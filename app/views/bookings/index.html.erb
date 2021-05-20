@@ -15,17 +15,32 @@
 </div>
 
 <div class="bookings">
+  <p>Voici la liste de tous les stuffs les bookings pending</p>
   <div class="container d-flex">
-    <div class="list col-8">
-      <% @my_bookings.each do |booking| %>
-        <%= booking.product.title %>
+    <div class="list col-10">
+      <% @my_own_bookings.each_with_index do |booking| %>
+        <%= render "shared/booking_index_card", booking: booking%>
       <% end %>
+    </div>
+    <!-- <p>Voici la liste de tous les stuffs que j'ai booké</p>
+    <div class="list col-10">
+      <% @bookings.each_with_index do |booking| %>
+        <%= render "shared/booking_index_card", booking: booking%>
+      <% end %>
+    </div> -->
     </div>
   </div>
 </div>
 <div class="my-stuff d-none">
-  <% @products.each do |product| %>
-  <%= product.title %>
-  <% end %>
+  <p>Voici la liste de tous les stuffs que je peux louer</p>
+<div class="container d-flex">
+  <div class="list col-10">
+    <% @products.each_with_index do |p,i| %>
+      <%= link_to product_path(p) do %>
+        <%= render "shared/index_card", product: p, i: i %>
+      <% end %>
+    <% end %>
+  </div>
+</div>
 </div>
 

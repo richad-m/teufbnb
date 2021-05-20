@@ -2,10 +2,11 @@ class BookingsController < ApplicationController
   def index
     #Retrieve the user id
     @bookings = policy_scope(Booking)
-    @bookings = current_user.bookings
+    # @bookings = current_user.bookings
     # Assign all bookings of the user to @bookings
     @my_bookings = @bookings.where(user_id: current_user.id)
     @products = Product.where(user_id: current_user.id)
+    @my_own_bookings = current_user.bookings
   end
 
   def new

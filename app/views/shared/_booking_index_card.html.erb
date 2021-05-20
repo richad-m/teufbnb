@@ -1,0 +1,29 @@
+<div class="card-product m-3">
+  <div class="picture">
+        <%= cl_image_tag booking.product.photos.first, height: 150, width: 200, crop: :fill, class: "d-block" %>
+  </div>
+  <div class="card-product-infos flex-grow-1">
+    <h4>
+      <%= booking.product.title %> (<%= booking.status %>)
+    </h4>
+    <p>
+      <%= "#{booking.product.price} € / day " %>
+    </p>
+    <p>
+      Requested by: <%= booking.user.first_name %>
+    </p>
+    <p>
+       • from: <%= booking.start_date %>
+      ->
+       • to: <%= booking.end_date %>
+    </p>
+  </div>
+  <div class="card-delete mr-5">
+    <% if user_signed_in? && current_user.id == booking.product.user_id %>
+      <%= link_to  "<i class='fas fa-check-square'></i>".html_safe, root_path, class: "icone" %>
+      <%= link_to "<i class='fas fa-times'></i>".html_safe,
+            root_path,
+            class: "icone" %>
+    <% end %>
+  </div>
+</div>
