@@ -22,7 +22,7 @@ class BookingPolicy < ApplicationPolicy
   end
 
   def edit?
-    @record.user_id == user.id
+    # @record.user_id == user.id
   end
 
   def update?
@@ -32,11 +32,11 @@ class BookingPolicy < ApplicationPolicy
   end
 
   def accept?
-    edit?
+    Product.find(@record.product_id).user_id == user.id
   end
 
   def deny?
-    edit?
+    accept?
   end
 
   def destroy?
