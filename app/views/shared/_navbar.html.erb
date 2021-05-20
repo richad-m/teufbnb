@@ -22,6 +22,7 @@
               <% if policy(Product).create? %>
                 <%= link_to "Edit your profile", edit_user_registration_path, class: "dropdown-item" %>
                 <%= link_to "Rent your party stuff", new_product_path, class: "dropdown-item" %>
+                <%= link_to "My bookings", bookings_path, class: "dropdown-item" %>
               <% end  %>
               <%= link_to "Logout", destroy_user_session_path, method: :delete, class: "dropdown-item" %>
             <% else %>
