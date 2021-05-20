@@ -22,9 +22,9 @@
 </div>
 
 <div class="container d-flex">
-  <div class="list col-8">
-    <% @bookings.each do |booking| %>
-      <%= booking.product.title %>
+  <div class="list col-10">
+    <% @bookings.each_with_index do |booking| %>
+      <%= render "shared/booking_index_card", booking: booking%>
     <% end %>
   </div>
 </div>
