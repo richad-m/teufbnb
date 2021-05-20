@@ -12,7 +12,8 @@ class ProductsController < ApplicationController
   @markers = @products.geocoded.map do |product|
       {
         lat: product.latitude,
-        lng: product.longitude
+        lng: product.longitude,
+        infoWindow: render_to_string(partial: "info_window", locals: { product: product })
       }
     end
 
