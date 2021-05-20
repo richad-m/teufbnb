@@ -5,6 +5,7 @@ class Booking < ApplicationRecord
   validates :end_date, presence: true
 
   validate :end_date_after_start_date
+  validates :status, presence: true, inclusion: {in: %w(pending valided denied)}
 
   private
   def end_date_after_start_date
