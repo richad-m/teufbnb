@@ -4,20 +4,16 @@ class ProductsController < ApplicationController
 
  def index
   @products = policy_scope(Product)
-
   flash[:notice]="Succesfully booked" if params[:booking]
-
-
-
   @markers = @products.geocoded.map do |product|
       {
         lat: product.latitude,
         lng: product.longitude,
         infoWindow: render_to_string(partial: "info_window", locals: { product: product })
       }
-    end
-
+  end
   @products = Product.where(category: params[:q]) if params[:q]
+  @products = Product.where("title ILIKE ?", "%#{params[:query]}%") if params[:query].present?
   # raise
 
  end
