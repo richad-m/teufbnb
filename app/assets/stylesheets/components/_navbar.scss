@@ -5,6 +5,10 @@
   z-index: 99999;
   justify-content: space-between;
   height: $navbar-height;
+  transition: 0.5s background-color ease;
+}
+.white {
+  background-color: white;
 }
 
 .navbar-lewagon .navbar-collapse {
@@ -13,7 +17,7 @@
 }
 
 .fa-user-astronaut {
-  font-size: 30px;
+  font-size: 22px;
   border: solid 2px black;
   border-radius: 50%;
   padding: 10px;
@@ -31,7 +35,7 @@
 }
 
 .facette {
-  margin: 40px;;
+  margin: 2px;;
 }
 
 .link-new-product{

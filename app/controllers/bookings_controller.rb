@@ -1,9 +1,11 @@
 class BookingsController < ApplicationController
-  # def index
-  #   #Retrieve the user id
-  #   # Assign all bookings of the user to @bookings
+  def index
+    #Retrieve the user id
+    @bookings = policy_scope(Booking)
+    @bookings = current_user.bookings
+    # Assign all bookings of the user to @bookings
 
-  # end
+  end
 
   def new
     @booking = Booking.new

@@ -1,6 +1,7 @@
 <div class="navbar navbar-expand-sm navbar-light navbar-lewagon fixed-top">
   <%= link_to root_path, class: "navbar-brand" do %>
     <img src="https://static.wixstatic.com/media/cb967b_afaeaa7f185044b4b46ca406ba0791b5~mv2.gif" alt="mirror ball"  width="500" class="facette"/>
+    <strong>Teufbnb</strong>
   <% end %>
 
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -21,6 +22,7 @@
               <% if policy(Product).create? %>
                 <%= link_to "Edit your profile", edit_user_registration_path, class: "dropdown-item" %>
                 <%= link_to "Rent your party stuff", new_product_path, class: "dropdown-item" %>
+                <%= link_to "My bookings", bookings_path, class: "dropdown-item" %>
               <% end  %>
               <%= link_to "Logout", destroy_user_session_path, method: :delete, class: "dropdown-item" %>
             <% else %>
