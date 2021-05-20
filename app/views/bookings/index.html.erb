@@ -18,7 +18,7 @@
   <p>Voici la liste de tous les stuffs les bookings pending</p>
   <div class="container d-flex">
     <div class="list col-10">
-      <% @my_own_bookings.each_with_index do |booking| %>
+      <% @my_own_bookings.each do |booking| %>
         <%= render "shared/booking_index_card", booking: booking%>
       <% end %>
     </div>

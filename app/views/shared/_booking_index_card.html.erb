@@ -1,6 +1,6 @@
 <div class="card-product m-3">
   <div class="picture">
-        <%= cl_image_tag booking.product.photos.first, height: 150, width: 200, crop: :fill, class: "d-block" %>
+        <%= cl_image_tag booking.product.photos.first.key, height: 150, width: 200, crop: :fill, class: "d-block" %>
   </div>
   <div class="card-product-infos flex-grow-1">
     <h4>
