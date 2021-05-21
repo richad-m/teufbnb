@@ -19,7 +19,8 @@
       <%= text_field_tag :query,
         params[:query],
         class: "h-100 ml-2 flex-grow-1",
-        placeholder: "Search stuff"
+        placeholder: "Search stuff",
+        remote: true
       %>
       <%= button_tag "<i class='fas fa-search'></i>".html_safe, class: "btn rounded-0", style: "color: white; background-color:rgb(175, 37, 37);"%>
     <% end %>
