@@ -5,6 +5,11 @@ class ProductsController < ApplicationController
  def index
   @products = policy_scope(Product)
   flash[:notice]="Succesfully booked" if params[:booking]
+  @products = Product.where(category: params[:q]) if params[:q]
+  sql_query = "title ILIKE :query OR description ILIKE :query"
+  @products = Product.where(sql_query, query: "%#{params[:query]}%") if params[:query].present?
+  # @products = Product.where("title ILIKE ?", "%#{params[:query]}%") if params[:query].present?
+  # raise
   @markers = @products.geocoded.map do |product|
       {
         lat: product.latitude,
@@ -12,9 +17,6 @@ class ProductsController < ApplicationController
         infoWindow: render_to_string(partial: "info_window", locals: { product: product })
       }
   end
-  @products = Product.where(category: params[:q]) if params[:q]
-  @products = Product.where("title ILIKE ?", "%#{params[:query]}%") if params[:query].present?
-  # raise
 
  end
 

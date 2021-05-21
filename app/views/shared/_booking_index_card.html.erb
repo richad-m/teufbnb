@@ -23,12 +23,14 @@
       <%= link_to  "<i class='fas fa-check-square'></i>".html_safe, accept_booking_path(booking),
       method: :patch,
         data: { confirm: "Confirm booking?" },
-       class: "icone" %>
+       class: "icone",
+       remote: true %>
       <%= link_to "<i class='fas fa-times'></i>".html_safe,
             deny_booking_path(booking),
             method: :patch,
             data: { confirm: "Decline request?" },
-            class: "icone" %>
+            class: "icone",
+            remote: true%>
     <% end %>
   </div>
 </div>
