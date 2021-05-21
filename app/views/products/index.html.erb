@@ -26,12 +26,12 @@
       <%= button_tag "<i class='fas fa-search'></i>".html_safe, class: "btn rounded-0", style: "color: white; background-color:rgb(175, 37, 37);"%>
     <% end %>
   </div>
-
-
-  </div>
+</div>
+<div>
   <% if params[:q] %>
-  <p class= "row mt-3"> Our party stuff in the category <%= params[:q] %></p>
+  <p class= "row", style = "margin-top: 4px;margin-left: 1px;"> Our party stuff in the category <%= params[:q] %></p>
   <% end %>
+</div>
 
 
   <div class="d-flex">
