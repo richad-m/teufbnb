@@ -52,14 +52,14 @@
           label: "End date", label_html: {class: "label-show"},
           as: :date,
           html5: true%>
-          <%= f.submit "Book now", class: "btn-show rounded" %>
+          <%= f.submit "Book now", class: "btn-show rounded", style: "margin-left:4px;" %>
       <% end %>
 
     </div>
   </div>
     <%# COMMENT: description below %>
-  <div class="row card card-show d-flex flex-column mt-3">
+  <div class="row card card-show d-flex flex-column my-3">
     <div class="p-2"><h4><%= @product.description %></h4></div>
-    <div class="p-2"><h5>Price :<%= @product.price %></h5></div>
+    <div class="p-2"><h5>Price : <%= @product.price %>€ / day</h5></div>
   </div>
 </div>
