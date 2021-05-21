@@ -16,28 +16,28 @@
   </div>
 
   <div class="bookings">
-    <div class = "bookings-to-approve my-5">
-      <% if @bookings_to_approve.count == 0 %>
-        <h5><em><%= "You have no bookings to approve yet" %></em></h5>
-      <% else %>
-        <h5>Voici la liste des bookings à approuver</h5>
-        <div class="d-flex">
-          <div class="list col-10">
-            <% @bookings_to_approve.each do |booking| %>
-              <%= render "shared/booking_index_card", booking: booking%>
-            <% end %>
-          </div>
-        </div>
-      <% end %>
-    </div>
-    <div class="bookings-pending">
+    <div class="bookings-pending my-5">
       <% if @my_pending_bookings.count == 0 %>
-        <h5><em><%= "You have no demande de bookings en attente de validation" %></em></h5>
+        <h5><em><%= "You have no bookings waiting for your approval" %></em></h5>
       <% else %>
         <h5>You have <%= pluralize @my_pending_bookings.count,"booking"%> waiting for validation</h5>
         <div class="d-flex">
-          <div class="list col-10">
+          <div class="list col-10 mt-3">
             <% @my_pending_bookings.each do |booking| %>
+              <%= render "shared/booking_index_card", booking: booking%>
+            <% end %>
+          </div>
+          </div>
+      <% end %>
+    </div>
+    <div class="bookings-ok my-5">
+      <% if @bookings_ok.count == 0 %>
+        <h5><em><%= "You have no previous or validated bookings" %></em></h5>
+      <% else %>
+        <h5>You have <%= pluralize @bookings_ok.count,"booking"%></h5>
+        <div class="d-flex">
+          <div class="list col-10 mt-3">
+            <% @bookings_ok.each do |booking| %>
               <%= render "shared/booking_index_card", booking: booking%>
             <% end %>
           </div>
@@ -46,9 +46,23 @@
     </div>
   </div>
   <div class="my-stuff d-none my-5">
+    <div class = "bookings-to-approve my-5">
+      <% if @bookings_to_approve.count == 0 %>
+        <h5><em><%= "You have no bookings to approve yet" %></em></h5>
+      <% else %>
+        <h5>Voici la liste des bookings à approuver</h5>
+        <div class="d-flex">
+          <div class="list col-10 mt-3">
+            <% @bookings_to_approve.each do |booking| %>
+              <%= render "shared/booking_index_card", booking: booking%>
+            <% end %>
+          </div>
+        </div>
+      <% end %>
+    </div>
     <h5>You have <%= pluralize @products.count,"product"%> available</h5>
     <div class="d-flex">
-      <div class="list col-10">
+      <div class="list col-10 mt-3">
         <% @products.each_with_index do |p,i| %>
           <%= link_to product_path(p) do %>
             <%= render "shared/index_card", product: p, i: i %>
