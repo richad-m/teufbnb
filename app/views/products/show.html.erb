@@ -1,7 +1,9 @@
 <div class="container">
   <div class="row card-title d-flex flex-row justify-content-between mt-2">
-    <div class="col title-show d-flex align-items-center">
-      <h2><%= @product.title %></h2>
+    <div class="div">
+    <%# <div class="col title-show d-flex align-items-center"> %>
+      <h2 class="pl-2"><%= @product.title %></h2>
+      <p class="pl-2">Created by: <%= @product.user.first_name %></p>
     </div>
     <div class="col text-right">
       <p> <i class="far fa-heart"></i>   <i class="far fa-share-square"></i> </p>
@@ -60,6 +62,6 @@
     <%# COMMENT: description below %>
   <div class="row card card-show d-flex flex-column mt-3">
     <div class="p-2"><h4><%= @product.description %></h4></div>
-    <div class="p-2"><h5>Price :<%= @product.price %></h5></div>
+    <div class="p-2"><h5>Price :<%= @product.price %>€ / day</h5></div>
   </div>
 </div>
