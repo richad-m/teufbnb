@@ -1,10 +1,10 @@
-<div class="card-product m-3">
+<div class="card-product my-3 mr-3">
     <!-- Carrousel -->
   <div id="product-carousel-<%=i%>" class="carousel slide" data-ride="carousel">
     <div class="carousel-inner">
       <% product.photos.each_with_index do |photo, i| %>
         <div class="carousel-item <%= "active" if i == 0 %>">
-          <%= cl_image_tag photo.key, height: 150, width: 200, crop: :fill, class: "d-block" %>
+          <%= cl_image_tag photo.key, height: 150, width: 200, crop: :fill, class: "d-block index" %>
         </div>
       <% end %>
     </div>
@@ -18,15 +18,17 @@
     </a>
   </div>
 
-  <div class='card-product-infos flex-grow-1'>
-    <h2>
+  <div class='card-product-infos flex-grow-1 container'>
+    <div class="card_title">
       <%= link_to product.title, product_path(product)%>
-    </h2>
-    <p>
-      <%= link_to product.description, product_path(product)%>
-
+    </div>
+    <div class="card_description">
+      <%= link_to product.description, product_path(product) %>
+    </div>
+    <div class="card_price">
       <%= "#{product.price} € / day " %>
       <%= "by #{User.find(product.user_id).first_name}" %>
+    </div>
     </p>
   </div>
   <div class="card-delete mr-5">

@@ -49,6 +49,40 @@ document.addEventListener('turbolinks:load', () => {
     myStuff.classList.add('d-none')
   });
 
+  $(function() {
+    var $el,
+      leftPos,
+      newWidth,
+      $mainNav = $(".booking .navbar-nav");
+  
+    $mainNav.append("<li id='magic-line'></li>");
+    var $magicLine = $("#magic-line");
+  
+    $magicLine
+      .width($(".active").width())
+      .css("left", $(".booking .active a").position().left)
+      .data("origLeft", $magicLine.position().left)
+      .data("origWidth", $magicLine.width());
+  
+    $(".booking .navbar-nav li a").hover(
+      function() {
+        $el = $(this);
+        leftPos = $el.position().left;
+        newWidth = $el.parent().width();
+        $magicLine.stop().animate({
+          left: leftPos,
+          width: newWidth
+        });
+      },
+      function() {
+        $magicLine.stop().animate({
+          left: $magicLine.data("origLeft"),
+          width: $magicLine.data("origWidth")
+        });
+      }
+    );
+  });
+
 });
 
 import { initMapbox } from '../plugins/init_mapbox';
@@ -57,39 +91,39 @@ document.addEventListener('turbolinks:load', () => {
   initMapbox();
 })
 // Magic navbar in dashboard index page
-$(function() {
-  var $el,
-    leftPos,
-    newWidth,
-    $mainNav = $(".booking .navbar-nav");
+// $(function() {
+//   var $el,
+//     leftPos,
+//     newWidth,
+//     $mainNav = $(".booking .navbar-nav");
 
-  $mainNav.append("<li id='magic-line'></li>");
-  var $magicLine = $("#magic-line");
+//   $mainNav.append("<li id='magic-line'></li>");
+//   var $magicLine = $("#magic-line");
 
-  $magicLine
-    .width($(".active").width())
-    .css("left", $(".booking .active a").position().left)
-    .data("origLeft", $magicLine.position().left)
-    .data("origWidth", $magicLine.width());
+//   $magicLine
+//     .width($(".active").width())
+//     .css("left", $(".booking .active a").position().left)
+//     .data("origLeft", $magicLine.position().left)
+//     .data("origWidth", $magicLine.width());
 
-  $(".booking .navbar-nav li a").hover(
-    function() {
-      $el = $(this);
-      leftPos = $el.position().left;
-      newWidth = $el.parent().width();
-      $magicLine.stop().animate({
-        left: leftPos,
-        width: newWidth
-      });
-    },
-    function() {
-      $magicLine.stop().animate({
-        left: $magicLine.data("origLeft"),
-        width: $magicLine.data("origWidth")
-      });
-    }
-  );
-});
+//   $(".booking .navbar-nav li a").hover(
+//     function() {
+//       $el = $(this);
+//       leftPos = $el.position().left;
+//       newWidth = $el.parent().width();
+//       $magicLine.stop().animate({
+//         left: leftPos,
+//         width: newWidth
+//       });
+//     },
+//     function() {
+//       $magicLine.stop().animate({
+//         left: $magicLine.data("origLeft"),
+//         width: $magicLine.data("origWidth")
+//       });
+//     }
+//   );
+// });
 
 // Credit: https://css-tricks.com/jquery-magicline-navigation
 

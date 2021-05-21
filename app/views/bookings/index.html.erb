@@ -1,46 +1,61 @@
-<h1>Your dashboard</h1>
+<div class="container">
+  <h1>Your dashboard</h1>
 
-<div id="app" class="container">
-  <nav class="booking navbar navbar-toggleable-md navbar-light bg-faded">
-    <!-- <ul class="mr-auto"></ul> -->
-    <ul class="booking navbar-nav flex-row">
-      <li class="booking nav-item active mx-3">
-        <a id = "bookings" class="booking nav-link" href="">Bookings <span class="sr-only">(current)</span></a>
-      </li>
-      <li class="booking nav-item">
-        <a id = "mystuff" class="booking nav-link" href="">My party stuff</a>
-      </li>
-    </ul>
-  </nav>
-</div>
+  <div id="app" class="">
+    <nav class="booking navbar navbar-toggleable-md navbar-light bg-faded">
+      <!-- <ul class="mr-auto"></ul> -->
+      <ul class="booking navbar-nav flex-row">
+        <li class="booking nav-item active mx-3">
+          <a id = "bookings" class="booking nav-link" href="">Bookings <span class="sr-only">(current)</span></a>
+        </li>
+        <li class="booking nav-item">
+          <a id = "mystuff" class="booking nav-link" href="">My party stuff</a>
+        </li>
+      </ul>
+    </nav>
+  </div>
 
-<div class="bookings">
-  <p>Voici la liste de tous les stuffs les bookings pending</p>
-  <div class="container d-flex">
-    <div class="list col-10">
-      <% @my_own_bookings.each do |booking| %>
-        <%= render "shared/booking_index_card", booking: booking%>
+  <div class="bookings">
+    <div class = "bookings-to-approve my-5">
+      <% if @bookings_to_approve.count == 0 %>
+        <em><%= "You have no bookings to approve yet" %></em>
+      <% else %>
+        <p>Voici la liste des bookings à approuver</p>
+        <div class="container d-flex">
+          <div class="list col-10">
+            <% @bookings_to_approve.each do |booking| %>
+              <%= render "shared/booking_index_card", booking: booking%>
+            <% end %>
+          </div>
+        </div>
       <% end %>
     </div>
-    <!-- <p>Voici la liste de tous les stuffs que j'ai booké</p>
-    <div class="list col-10">
-      <% @bookings.each_with_index do |booking| %>
-        <%= render "shared/booking_index_card", booking: booking%>
+    <div class="bookings-pending">
+      <% if @my_pending_bookings.count == 0 %>
+        <em><%= "You have no demande de bookings en attente de validation" %></em>
+      <% else %>
+        <p>Voici la liste de mes demandes de bookings en attente de validation</p>
+        <div class="container d-flex">
+          <div class="list col-10">
+            <% @my_pending_bookings.each do |booking| %>
+              <%= render "shared/booking_index_card", booking: booking%>
+            <% end %>
+          </div>
+          </div>
       <% end %>
-    </div> -->
     </div>
   </div>
-</div>
-<div class="my-stuff d-none">
-  <p>Voici la liste de tous les stuffs que je peux louer</p>
-<div class="container d-flex">
-  <div class="list col-10">
-    <% @products.each_with_index do |p,i| %>
-      <%= link_to product_path(p) do %>
-        <%= render "shared/index_card", product: p, i: i %>
-      <% end %>
-    <% end %>
+  <div class="my-stuff d-none">
+    <p>Voici la liste de tous les stuffs que je peux louer</p>
+    <div class="container d-flex">
+      <div class="list col-10">
+        <% @products.each_with_index do |p,i| %>
+          <%= link_to product_path(p) do %>
+            <%= render "shared/index_card", product: p, i: i %>
+          <% end %>
+        <% end %>
+      </div>
+    </div>
   </div>
-</div>
 </div>
 
