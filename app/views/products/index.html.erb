@@ -1,50 +1,53 @@
 <div class="container">
 
-<h1>All our party stuff</h1>
-<div class="search row justify-content-between" style= "width:63%;">
-  <div class="dropdown search-category">
-    <button class="btn" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false", style="color: white;background-color:rgb(175, 37, 37);">
-      Filter by Category
-    </button>
-    <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-      <a class="dropdown-item" href="/products/?q=Sons">Sons</a>
-      <a class="dropdown-item" href="/products/?q=Lumieres">Lumières</a>
-      <a class="dropdown-item" href="/products/?q=Insolite">Insolite</a>
-      <a class="dropdown-item" href="/products/?q=Deco">Déco</a>
-      <a class="dropdown-item" href="/products/">All</a>
-    </div>
+  <h1>All our party stuff</h1>
+  <div class="search row justify-content-between ml-0" style= "width:63%;">
+    <div class="dropdown search-category">
+      <button class="btn" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false", style="color: white;background-color:rgb(175, 37, 37);">
+        Filter by Category
+      </button>
+      <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+        <a class="dropdown-item" href="/products/?q=Sons">Sons</a>
+        <a class="dropdown-item" href="/products/?q=Lumieres">Lumières</a>
+        <a class="dropdown-item" href="/products/?q=Insolite">Insolite</a>
+        <a class="dropdown-item" href="/products/?q=Deco">Déco</a>
+        <a class="dropdown-item" href="/products/">All</a>
+      </div>
+
   </div>
   <div class='d-flex'>
     <%= form_tag products_path, method: :get do %>
       <%= text_field_tag :query,
         params[:query],
         class: "h-100 ml-2 flex-grow-1",
-        placeholder: "Search stuff"
+        placeholder: "Search stuff",
+        remote: true
       %>
       <%= button_tag "<i class='fas fa-search'></i>".html_safe, class: "btn rounded-0", style: "color: white; background-color:rgb(175, 37, 37);"%>
     <% end %>
   </div>
 
-</div>
-<% if params[:q] %>
-<p class= "row mt-3"> Our party stuff in the category <%= params[:q] %></p>
-<% end %>
+
+  </div>
+  <% if params[:q] %>
+  <p class= "row mt-3"> Our party stuff in the category <%= params[:q] %></p>
+  <% end %>
 
 
-<div class="container d-flex">
-  <div class="list col-8">
-    <% @products.each_with_index do |p,i| %>
-      <%= link_to product_path(p) do %>
-        <%= render "shared/index_card", product: p, i: i %>
+  <div class="d-flex">
+    <div class="list col-8">
+      <% @products.each_with_index do |p,i| %>
+        <%= link_to product_path(p) do %>
+          <%= render "shared/index_card", product: p, i: i %>
+        <% end %>
       <% end %>
-    <% end %>
+    </div>
+    <div id="map" class="col-4"
+      style="width: 100%; height: 600px;"
+      data-markers="<%= @markers.to_json %>"
+      data-mapbox-api-key="pk.eyJ1IjoibWJlZ2luIiwiYSI6ImNrbzRjbTN0cTFpMGYydm12bXBkbnNvM28ifQ.5_XN1L3vDAyA8fnDzQtS1g">
+    </div>
   </div>
-  <div id="map" class="col-4"
-     style="width: 100%; height: 600px;"
-     data-markers="<%= @markers.to_json %>"
-     data-mapbox-api-key="pk.eyJ1IjoibWJlZ2luIiwiYSI6ImNrbzRjbTN0cTFpMGYydm12bXBkbnNvM28ifQ.5_XN1L3vDAyA8fnDzQtS1g">
-  </div>
-</div>
 
 </div>
 
