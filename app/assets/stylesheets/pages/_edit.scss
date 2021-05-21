@@ -3,8 +3,9 @@
 }
 
 .text-muted{
-    color: rgba(255, 255, 255, 0.685) !important;
-    font-size: 8px !important;
+    color: rgba(255, 255, 255, 0.767) !important;
+    font-size: 10px !important;
+    font-weight:700;
 }
 
 small {
@@ -18,4 +19,22 @@ small {
 
 .margintop{
 margin-top: 25px;
+}
+
+
+.row_footer{
+    display:flex;
+    justify-content: space-around;
+    padding-bottom: 10px;
+    
+}
+
+.container_footer {
+    color:white !important;
+}
+
+
+.row_footertop{
+    display: flex;
+    justify-content: space-around;
 }
