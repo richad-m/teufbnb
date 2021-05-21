@@ -21,10 +21,14 @@ class BookingsController < ApplicationController
     @booking.product = @product
     @booking.status = "pending"
     authorize @booking
-    if @booking.save!
-      redirect_to bookings_path
+    if @booking.start_date.nil? || @booking.end_date.nil? || @booking.start_date > @booking.end_date
+      redirect_to product_path(@booking.product_id)
     else
-      render :new
+      if @booking.save!
+        redirect_to bookings_path
+      else
+        render :new
+      end
     end
   end
 
