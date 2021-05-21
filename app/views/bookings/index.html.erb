@@ -2,7 +2,7 @@
   <h1>Your dashboard</h1>
 
   <div id="app" class="">
-    <nav class="booking navbar navbar-toggleable-md navbar-light bg-faded">
+    <nav class="booking navbar navbar-toggleable-md navbar-light bg-faded", style="margin-left:-31px">
       <!-- <ul class="mr-auto"></ul> -->
       <ul class="booking navbar-nav flex-row">
         <li class="booking nav-item active mx-3">
@@ -18,10 +18,10 @@
   <div class="bookings">
     <div class = "bookings-to-approve my-5">
       <% if @bookings_to_approve.count == 0 %>
-        <em><%= "You have no bookings to approve yet" %></em>
+        <h5><em><%= "You have no bookings to approve yet" %></em></h5>
       <% else %>
-        <p>Voici la liste des bookings à approuver</p>
-        <div class="container d-flex">
+        <h5>Voici la liste des bookings à approuver</h5>
+        <div class="d-flex">
           <div class="list col-10">
             <% @bookings_to_approve.each do |booking| %>
               <%= render "shared/booking_index_card", booking: booking%>
@@ -32,10 +32,10 @@
     </div>
     <div class="bookings-pending">
       <% if @my_pending_bookings.count == 0 %>
-        <em><%= "You have no demande de bookings en attente de validation" %></em>
+        <h5><em><%= "You have no demande de bookings en attente de validation" %></em></h5>
       <% else %>
-        <p>Voici la liste de mes demandes de bookings en attente de validation</p>
-        <div class="container d-flex">
+        <h5>You have <%= pluralize @my_pending_bookings.count,"booking"%> waiting for validation</h5>
+        <div class="d-flex">
           <div class="list col-10">
             <% @my_pending_bookings.each do |booking| %>
               <%= render "shared/booking_index_card", booking: booking%>
@@ -45,9 +45,9 @@
       <% end %>
     </div>
   </div>
-  <div class="my-stuff d-none">
-    <p>Voici la liste de tous les stuffs que je peux louer</p>
-    <div class="container d-flex">
+  <div class="my-stuff d-none my-5">
+    <h5>You have <%= pluralize @products.count,"product"%> available</h5>
+    <div class="d-flex">
       <div class="list col-10">
         <% @products.each_with_index do |p,i| %>
           <%= link_to product_path(p) do %>
