@@ -17,12 +17,14 @@
       <span class="sr-only">Next</span>
     </a>
   </div>
-  <div class="card-product-infos flex-grow-1">
+
+  <div class='card-product-infos flex-grow-1'>
     <h2>
-      <%= product.title %>
+      <%= link_to product.title, product_path(product)%>
     </h2>
     <p>
-      <%= product.description %>
+      <%= link_to product.description, product_path(product)%>
+
       <%= "#{product.price} € / day " %>
       <%= "by #{User.find(product.user_id).first_name}" %>
     </p>
