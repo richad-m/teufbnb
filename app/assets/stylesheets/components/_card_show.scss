@@ -48,7 +48,9 @@
 
 
   #product-carousel {
-    height: 80%;
+    height: 50%;
+    width: 70%;
+    margin-left: 111px;
   }
 
   .form-control {
@@ -60,7 +62,13 @@
   }
 
   .form-show {
-    font-size: 24px;
+    font-size: 16px;
+  }
+
+  .btn-show {
+    border: 1px;
+    color: white;
+    background-color: #AF2D25;
   }
 
   #booking_start_date {
@@ -72,8 +80,10 @@
   }
 
   .label-show {
-    font-size: 24px;
+    font-size: 16px;
   }
 
-
+.carousel-border {
+  border-radius: 15px;
+}
 
