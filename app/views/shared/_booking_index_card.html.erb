@@ -3,9 +3,22 @@
         <%= cl_image_tag booking.product.photos.first.key, height: 150, width: 200, crop: :fill, class: "d-block" %>
   </div>
   <div class="card-product-infos flex-grow-1">
-    <h4>
-      <%= booking.product.title %> (<%= booking.status %>)
-    </h4>
+    <div class="title-infos d-flex justify-content-between">
+      <h4>
+        <%= booking.product.title %>
+      </h4>
+      <% case booking.status %>
+      <% when "pending"%>
+        <%b_color = "orange" %>
+      <% when "validated"%> 
+        <%b_color = "green" %>
+      <% when "declined"%> 
+        <%b_color = "red" %>
+      <% end %>
+      <h5 style=<%="color:#{b_color}"%>>
+        Status : <%= booking.status%>
+      </h5>
+    </div>
     <p>
       <%= "#{booking.product.price} € / day " %>
     </p>
@@ -23,12 +36,14 @@
       <%= link_to  "<i class='fas fa-check-square'></i>".html_safe, accept_booking_path(booking),
       method: :patch,
         data: { confirm: "Confirm booking?" },
-       class: "icone" %>
+       class: "icone",
+       remote: true %>
       <%= link_to "<i class='fas fa-times'></i>".html_safe,
             deny_booking_path(booking),
             method: :patch,
             data: { confirm: "Decline request?" },
-            class: "icone" %>
+            class: "icone",
+            remote: true%>
     <% end %>
   </div>
 </div>

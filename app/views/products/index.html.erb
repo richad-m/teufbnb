@@ -13,17 +13,20 @@
         <a class="dropdown-item" href="/products/?q=Deco">Déco</a>
         <a class="dropdown-item" href="/products/">All</a>
       </div>
-    </div>
-    <div class='d-flex'>
-      <%= form_tag products_path, method: :get, class: "search_form" do %>
-        <%= text_field_tag :query,
-          params[:query],
-          class: "h-100 ml-2 flex-grow-1",
-          placeholder: "Search stuff"
-        %>
-        <%= button_tag "<i class='fas fa-search'></i>".html_safe, class: "btn rounded-0", style: "color: white; background-color:rgb(175, 37, 37);"%>
-      <% end %>
-    </div>
+
+  </div>
+  <div class='d-flex'>
+    <%= form_tag products_path, method: :get do %>
+      <%= text_field_tag :query,
+        params[:query],
+        class: "h-100 ml-2 flex-grow-1",
+        placeholder: "Search stuff",
+        remote: true
+      %>
+      <%= button_tag "<i class='fas fa-search'></i>".html_safe, class: "btn rounded-0", style: "color: white; background-color:rgb(175, 37, 37);"%>
+    <% end %>
+  </div>
+
 
   </div>
   <% if params[:q] %>
