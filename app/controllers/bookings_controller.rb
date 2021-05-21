@@ -5,7 +5,7 @@ class BookingsController < ApplicationController
     # @bookings = current_user.bookings
     # Assign all bookings of the user to @bookings
     @my_bookings = @bookings.where(user_id: current_user.id)
-    @bookings_ok = @my_bookings
+    @bookings_ok = @my_bookings.where(status: "validated")
     @products = Product.where(user_id: current_user.id)
     @bookings_to_approve = current_user.bookings.where(status: "pending")
     @my_pending_bookings = @my_bookings.where(status: "pending")
